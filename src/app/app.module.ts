@@ -7,15 +7,13 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { TableComponent } from './components/table/table.component';
 import { BookEntryComponent } from './components/book-entry/book-entry.component';
-import { EditableComponent } from './components/editable/editable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     TableComponent,
-    BookEntryComponent,
-    EditableComponent
+    BookEntryComponent
   ],
   imports: [
     BrowserModule,

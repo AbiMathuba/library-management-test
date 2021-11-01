@@ -9,6 +9,7 @@ import { bookModel } from '../../models/book-entries';
 export class TableComponent implements OnInit {
   @Input() table: bookModel[]=  [];
   amendedEntry: FormGroup;
+  id: number;
 
   editMode: boolean = false;
   constructor(fb:FormBuilder) { 
@@ -32,23 +33,22 @@ export class TableComponent implements OnInit {
   }
 
   update(book:bookModel, id:number){
+    this.id = id;
+console.log('table', this.table);
 
     if(this.editMode){
     // console.log('book',book, id);
     // need to check id to toggle edit state
     } else{
-      this.editMode = ! this.editMode;
+      this.cancel();
 
     }
   }
 
   save(rowBefore:bookModel, id:number){
     console.log('rowBefore',rowBefore, id);
-    //find object and replace it 
+    this.cancel();
   }
 
-  updateItem(updatedString:any){
-    //get emited value and update object
-    console.log('even',event)
-  }
+
 }

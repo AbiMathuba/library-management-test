@@ -27,14 +27,10 @@ export class BookEntryComponent implements OnInit {
 
   addNewRow() {
     if(this.bookEntry.valid){
-      console.log('this.bookEntry.invalid',this.bookEntry.invalid);
       this.addNewBook.emit(this.bookEntry.value);
     this.resetForm();
-      console.log('sdas', this.bookEntry.value);
     } else {
       this.formInvalid = true;
-      console.log('this.bookEntry.invalid',this.formInvalid);
-      
     }
   }
 

@@ -14,21 +14,24 @@
         <tr class="border-bottom" *ngFor="let row of table; let i = index">
             <th scope="row"></th>
             <td>
-                <app-editable [bookItem]="row.title" [isEditMode]="editMode" [table]="table" id="title"></app-editable>
+                <div *ngIf="(!editMode || editMode&& id !== i)">{{row.title}}</div>
+                <input type="text" *ngIf="editMode  && id == i" [(ngModel)]="row.title" />
             </td>
             <td>
-                <app-editable [bookItem]="row.author" [isEditMode]="editMode" [table]="table" id="author"></app-editable>
+                <div *ngIf="(!editMode || editMode&& id !== i)">{{row.author}}</div>
+                <input type="text" *ngIf="editMode  && id == i" [(ngModel)]="row.author" />
             </td>
             <td>
-                <app-editable [bookItem]="row.genre" [isEditMode]="editMode" [table]="table" id="genre" (updatedItem)="updateItem($event)"></app-editable>
+                <div *ngIf="(!editMode || editMode&& id !== i)">{{row.genre}}</div>
+                <input type="text" *ngIf="editMode && id == i" [(ngModel)]="row.genre" />
             </td>
             <td class="actions">
-                <ng-template [ngIf]="!editMode">
+                <ng-template [ngIf]="(!editMode || editMode && id !== i)">
                     <button class="button button-secondary--inverted button--small" (click)="remove(row, i)"> remove</button>
                     <button class="button button-secondary--inverted button--small" (click)="update(row, i)">update</button>
                 </ng-template>
 
-                <ng-template [ngIf]="editMode">
+                <ng-template [ngIf]="editMode  && id == i">
                     <button class="button button-secondary--inverted button--small" (click)="cancel()">cancel</button>
                     <button class="button button-secondary--inverted button--small" (click)="save(row, i)">save</button>
                 </ng-template>
