@@ -1,0 +1,13 @@
+<div class="library-managememt">
+    <!-- <app-table></app-table> -->
+    <div class="container">
+        <div class="container-header">
+            <div class="title h1">Books</div>
+
+            <book-entry class="container-create-btn" (addNewBook)=" addBookEvent($event)"></book-entry>
+        </div>
+
+        <app-table class="table-container " [table]="books"></app-table>
+    </div>
+
+</div>

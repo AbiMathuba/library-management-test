@@ -1,0 +1,41 @@
+<table class="table">
+    <thead>
+        <tr class="border-bottom">
+            <th scope="col th-row"></th>
+            <th scope="col th-row">Title</th>
+            <th scope="col th-row">Author</th>
+            <th scope="col th-row">Genre</th>
+            <th scope="col th-row">
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border-bottom" *ngFor="let row of table; let i = index">
+            <th scope="row"></th>
+            <td>
+                <app-editable [bookItem]="row.title" [isEditMode]="editMode" [table]="table" id="title"></app-editable>
+            </td>
+            <td>
+                <app-editable [bookItem]="row.author" [isEditMode]="editMode" [table]="table" id="author"></app-editable>
+            </td>
+            <td>
+                <app-editable [bookItem]="row.genre" [isEditMode]="editMode" [table]="table" id="genre" (updatedItem)="updateItem($event)"></app-editable>
+            </td>
+            <td class="actions">
+                <ng-template [ngIf]="!editMode">
+                    <button class="button button-secondary--inverted button--small" (click)="remove(row, i)"> remove</button>
+                    <button class="button button-secondary--inverted button--small" (click)="update(row, i)">update</button>
+                </ng-template>
+
+                <ng-template [ngIf]="editMode">
+                    <button class="button button-secondary--inverted button--small" (click)="cancel()">cancel</button>
+                    <button class="button button-secondary--inverted button--small" (click)="save(row, i)">save</button>
+                </ng-template>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- {{isEditMode}} -->

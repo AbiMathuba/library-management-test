@@ -1,0 +1,36 @@
+.table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    top: 25px;
+}
+
+.table {
+    // height: 450px;
+    width: 80%;
+    // background-color: yell
+    border-collapse: collapse;
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    ;
+}
+
+tr,
+th,
+td {
+    height: 50px;
+    text-align: initial;
+}
+
+thead {
+    height: 70px;
+}
+
+.actions {
+    width: 202px;
+}

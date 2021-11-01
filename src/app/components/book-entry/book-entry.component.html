@@ -1,0 +1,11 @@
+<form [formGroup]="bookEntry">
+    <div class="form-group">
+        <input type="text" formControlName="title" class="form-control" [ngClass]="{'has-error': (bookEntry.controls.title.errors && bookEntry.controls.title.touched) || formInvalid}" placeholder="enter book title" />
+        <input type="text" formControlName="author" class="form-control" [ngClass]="{'has-error': (bookEntry.controls.author.errors && bookEntry.controls.author.touched) || formInvalid}" placeholder="enter book author" />
+        <input type="text" formControlName="genre" class="form-control" [ngClass]="{'has-error': (bookEntry.controls.genre.errors && bookEntry.controls.genre.touched) || formInvalid}" placeholder="enter book genre" />
+        <button class="button button-secondary" (click)="addNewRow()">Add Row</button>
+    </div>
+    <div class="error-handling">
+        <span *ngIf="formInvalid">Please fill in the missing fields</span>
+    </div>
+</form>

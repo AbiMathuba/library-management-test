@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+//importing global styles
+@import '/src/styles/button.scss',
+'/src/styles/font.scss',
+'/src/styles/input.scss',
+'/src/styles/utilities.scss';
+//importing components 
+@import '/src/styles/book-list.component.scss',
+'/src/styles/table.component.scss',
+'/src/styles//book-list.component.scss';
+:host {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
